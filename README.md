@@ -300,3 +300,32 @@ The Jenkinsfile at the root of the repository defines a declarative pipeline wit
   "purchasePrice": 264.72
 }
 ```
+
+## What's Next — Sprint 3
+
+The following features are planned for the next sprint:
+
+**Database Migration**
+Replace the H2 in-memory database with PostgreSQL so data persists 
+between server restarts. This is required before the app can be deployed.
+
+**Cloud Deployment**
+Deploy the application to a cloud platform such as Railway or AWS so 
+others can access it without running it locally. This would involve 
+containerizing the app with Docker and configuring environment variables 
+for the API key and database credentials.
+
+**Portfolio Summary**
+Add a summary section above the holdings table showing total portfolio 
+value, best performing holding, and overall gain/loss calculated from 
+the current live price versus the purchase price.
+
+**User Authentication**
+Add login functionality so multiple users can each have their own 
+private portfolio. This would use Spring Security on the backend with 
+JWT tokens for authentication.
+
+**Unit Tests**
+Write unit tests for the service and controller layers using JUnit and 
+Mockito to improve code reliability and complete the CI/CD pipeline 
+properly.
