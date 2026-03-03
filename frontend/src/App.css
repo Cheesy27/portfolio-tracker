@@ -1,0 +1,232 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f0f2f5;
+  color: #333;
+  min-height: 100vh;
+}
+
+/* Wrapper */
+.app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.app-header {
+  background-color: #003087;
+  padding: 18px 32px;
+  display: flex;
+  align-items: center;
+  border-bottom: 4px solid #f5a623;
+  width: 100%;
+}
+
+.app-header h1 {
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+/* Main container */
+.app-container {
+  max-width: 1100px;
+  width: 100%;
+  margin: 32px auto;
+  padding: 0 24px;
+}
+
+/* Form section */
+.form-section {
+  background: white;
+  border-radius: 6px;
+  padding: 28px;
+  margin-bottom: 24px;
+  border-top: 4px solid #003087;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.form-section h2 {
+  color: #003087;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.form-section form {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr auto;
+  gap: 12px;
+  align-items: start;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-section input {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.2s;
+}
+
+.form-section input:focus {
+  outline: none;
+  border-color: #003087;
+  box-shadow: 0 0 0 2px rgba(0, 48, 135, 0.1);
+}
+
+.form-section button {
+  background-color: #003087;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  font-weight: bold;
+  height: 40px;
+  white-space: nowrap;
+  transition: background-color 0.2s;
+  align-self: start;
+}
+
+.form-section button:hover {
+  background-color: #f5a623;
+  color: #003087;
+}
+
+/* Validation */
+.input-error {
+  border-color: #cc0000 !important;
+}
+
+.error-message {
+  color: #cc0000;
+  font-size: 11px;
+  margin-top: 4px;
+}
+
+/* Table section */
+.table-section {
+  background: white;
+  border-radius: 6px;
+  padding: 28px;
+  border-top: 4px solid #003087;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+.table-section h2 {
+  color: #003087;
+  margin-bottom: 20px;
+  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 600px;
+}
+
+thead {
+  background-color: #003087;
+  color: white;
+}
+
+thead th {
+  padding: 12px 16px;
+  text-align: left;
+  font-weight: bold;
+  font-size: 13px;
+  letter-spacing: 0.3px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #e8e8e8;
+  transition: background-color 0.15s;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f9fafc;
+}
+
+tbody tr:hover {
+  background-color: #eef3fa;
+}
+
+tbody td {
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+.delete-btn {
+  background-color: white;
+  color: #003087;
+  border: 1px solid #003087;
+  padding: 6px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.2s;
+}
+
+.delete-btn:hover {
+  background-color: #003087;
+  color: white;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #888;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .app-container {
+    padding: 0 16px;
+    margin: 16px auto;
+  }
+
+  .form-section form {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-section button {
+    grid-column: 1 / -1;
+    width: 100%;
+  }
+
+  .app-header h1 {
+    font-size: 18px;
+  }
+
+  .form-section,
+  .table-section {
+    padding: 20px 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-section form {
+    grid-template-columns: 1fr;
+  }
+}

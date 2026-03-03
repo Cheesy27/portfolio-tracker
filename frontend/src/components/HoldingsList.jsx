@@ -21,30 +21,41 @@ function HoldingsList({ refresh }) {
   return (
     <div>
       <h2>My Holdings</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Symbol</th>
-            <th>Name</th>
-            <th>Quantity</th>
-            <th>Purchase Price</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {holdings.map((holding) => (
-            <tr key={holding.id}>
-              <td>{holding.symbol}</td>
-              <td>{holding.name}</td>
-              <td>{holding.quantity}</td>
-              <td>${holding.purchasePrice}</td>
-              <td>
-                <button onClick={() => handleDelete(holding.id)}>Delete</button>
-              </td>
+      {holdings.length === 0 ? (
+        <div className="empty-state">
+          No holdings yet. Add your first holding above.
+        </div>
+      ) : (
+        <table>
+          <thead>
+            <tr>
+              <th>Symbol</th>
+              <th>Name</th>
+              <th>Quantity</th>
+              <th>Purchase Price</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {holdings.map((holding) => (
+              <tr key={holding.id}>
+                <td>{holding.symbol}</td>
+                <td>{holding.name}</td>
+                <td>{holding.quantity}</td>
+                <td>${holding.purchasePrice}</td>
+                <td>
+                  <button
+                    className="delete-btn"
+                    onClick={() => handleDelete(holding.id)}
+                  >
+                    Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      )}
     </div>
   );
 }
