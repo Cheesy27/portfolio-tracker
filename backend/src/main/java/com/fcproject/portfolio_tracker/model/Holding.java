@@ -1,11 +1,15 @@
 package com.fcproject.portfolio_tracker.model;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Entity
 @Table(name = "holdings")
+@AllArgsConstructor
+@NoArgsConstructor
 public class Holding {
 
     @Id
@@ -19,7 +23,7 @@ public class Holding {
     private String name;
 
     @Column(nullable = false)
-    private Double quantity;
+    private int quantity;
 
     @Column(nullable = false)
     private Double purchasePrice;
