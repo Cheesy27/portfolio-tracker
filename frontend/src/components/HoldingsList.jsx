@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { getHoldings, deleteHolding } from "../api/holdingsApi";
+import { getHoldings, deleteHolding, updateQuantity } from "../api/holdingsApi";
 
 function HoldingsList({ refresh }) {
   const [holdings, setHoldings] = useState([]);
@@ -15,6 +15,16 @@ function HoldingsList({ refresh }) {
 
   const handleDelete = async (id) => {
     await deleteHolding(id);
+    fetchHoldings();
+  };
+
+  const handleBuy = async (id) => {
+    await updateQuantity(id, 1);
+    fetchHoldings();
+  };
+
+  const handleSell = async (id) => {
+    await updateQuantity(id, -1);
     fetchHoldings();
   };
 
@@ -41,7 +51,23 @@ function HoldingsList({ refresh }) {
               <tr key={holding.id}>
                 <td>{holding.symbol}</td>
                 <td>{holding.name}</td>
-                <td>{holding.quantity}</td>
+                <td>
+                  <div className="quantity-controls">
+                    <button
+                      className="qty-btn"
+                      onClick={() => handleSell(holding.id)}
+                    >
+                      −
+                    </button>
+                    <span className="qty-value">{holding.quantity}</span>
+                    <button
+                      className="qty-btn"
+                      onClick={() => handleBuy(holding.id)}
+                    >
+                      ＋
+                    </button>
+                  </div>
+                </td>
                 <td>${holding.purchasePrice}</td>
                 <td>
                   <button

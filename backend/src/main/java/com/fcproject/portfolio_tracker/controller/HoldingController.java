@@ -33,4 +33,13 @@ public class HoldingController {
         holdingService.deleteHolding(id);
         return ResponseEntity.noContent().build();
     }
+
+    @PatchMapping("/{id}/quantity")
+    public ResponseEntity<Holding> updateQuantity(@PathVariable Long id, @RequestParam int change) {
+        Holding updated = holdingService.updateQuantity(id, change);
+        if (updated == null) {
+            return ResponseEntity.noContent().build();
+        }
+        return ResponseEntity.ok(updated);
+    }
 }

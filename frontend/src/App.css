@@ -270,3 +270,38 @@ tbody td {
     grid-template-columns: 1fr;
   }
 }
+
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty-btn {
+  background-color: #003087;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.qty-btn:hover {
+  background-color: #f5a623;
+  color: #003087;
+}
+
+.qty-value {
+  min-width: 35px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 15px;
+}
