@@ -25,4 +25,16 @@ public class HoldingService {
     public void deleteHolding(Long id) {
         holdingRepository.deleteById(id);
     }
+
+    public Holding updateQuantity(Long id, int change) {
+        Holding holding = holdingRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Holding not found"));
+        int newQuantity = holding.getQuantity() + change;
+        if (newQuantity <= 0) {
+            holdingRepository.deleteById(id);
+            return null;
+        }
+        holding.setQuantity(newQuantity);
+        return holdingRepository.save(holding);
+    }
 }

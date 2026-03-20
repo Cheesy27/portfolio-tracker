@@ -26,3 +26,10 @@ export const getStockPrice = async (symbol) => {
     return null;
   }
 };
+
+export const updateQuantity = async (id, change) => {
+  const response = await axios.patch(
+    `${BASE_URL}/${id}/quantity?change=${change}`,
+  );
+  return response.data;
+};
